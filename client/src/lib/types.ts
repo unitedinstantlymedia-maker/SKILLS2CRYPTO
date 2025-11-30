@@ -57,4 +57,4 @@ export type GameAction =
 
 export const STAKE_PRESETS = [5, 20, 50, 100];
 export const PLATFORM_FEE_PERCENT = 3;
-export const PLATFORM_COLD_WALLET_ADDRESS = "0xPLATFORM_COLD_WALLET_123";
+// export const PLATFORM_COLD_WALLET_ADDRESS = "0xPLATFORM_COLD_WALLET_123"; // Backend integration placeholder

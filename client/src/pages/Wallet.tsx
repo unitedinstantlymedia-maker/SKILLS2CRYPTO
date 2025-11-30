@@ -2,7 +2,6 @@ import { useGame } from "@/context/GameContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Copy, Wallet as WalletIcon, ShieldCheck } from "lucide-react";
-import { PLATFORM_COLD_WALLET_ADDRESS } from "@/lib/types";
 
 export default function Wallet() {
   const { state, dispatch } = useGame();
@@ -89,29 +88,7 @@ export default function Wallet() {
         ))}
       </div>
 
-      {/* Platform Fees (Transparency) */}
-      <div className="space-y-4 pt-6 border-t border-white/5">
-        <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Platform Fees Collected</h2>
-        <Card className="bg-black/40 border-white/5">
-          <CardContent className="p-4 space-y-4">
-            <div className="space-y-2">
-              <p className="text-xs text-muted-foreground font-mono uppercase">Destination (Cold Wallet)</p>
-              <div className="font-mono text-xs text-white/70 bg-white/5 p-2 rounded break-all">
-                {PLATFORM_COLD_WALLET_ADDRESS}
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-3 gap-2">
-              {(['USDT', 'ETH', 'TON'] as const).map((asset) => (
-                <div key={asset} className="text-center p-2 rounded bg-white/5">
-                  <div className="text-[10px] text-muted-foreground mb-1">{asset}</div>
-                  <div className="font-mono text-sm font-bold text-accent">{platformFeesCollected[asset].toFixed(4)}</div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Platform Fees (Transparency) removed as per request */}
     </div>
   );
 }
