@@ -58,8 +58,8 @@ export default function Result() {
         
         {isWin && (
           <div className="pt-4 border-t border-white/10 text-xs text-muted-foreground flex justify-between">
-            <span>Platform Fee (3%)</span>
-            <span>-{state.currentMatch?.fee?.toFixed(4)} {state.selectedAsset}</span>
+            <span>Fee (3%) deducted</span>
+            <span>{state.currentMatch?.fee?.toFixed(4)} {state.selectedAsset}</span>
           </div>
         )}
       </Card>

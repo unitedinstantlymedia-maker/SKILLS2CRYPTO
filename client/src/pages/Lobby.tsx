@@ -111,9 +111,9 @@ export default function Lobby() {
             <span className="font-mono font-bold">{state.stakeAmount * 2} {state.selectedAsset}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Platform Fee (3%)</span>
-            <span className="font-mono text-destructive">
-              -{(state.stakeAmount * 2 * 0.03).toFixed(4)} {state.selectedAsset}
+            <span className="text-muted-foreground">Fee (3%) deducted</span>
+            <span className="font-mono text-muted-foreground">
+              {(state.stakeAmount * 2 * 0.03).toFixed(4)} {state.selectedAsset}
             </span>
           </div>
           <div className="border-t border-white/10 my-2 pt-2 flex justify-between text-lg font-display font-bold">

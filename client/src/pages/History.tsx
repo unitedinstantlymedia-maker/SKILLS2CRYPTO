@@ -39,7 +39,7 @@ export default function History() {
                     {item.result === 'win' ? '+' : '-'}{item.result === 'win' ? (item.payout - item.stake).toFixed(4) : item.stake} {item.asset}
                   </p>
                   <p className="text-xs text-muted-foreground font-mono">
-                    Fee: {item.fee.toFixed(4)}
+                    Fee (3%) deducted: {item.fee.toFixed(4)}
                   </p>
                 </div>
               </CardContent>
