@@ -4,6 +4,7 @@ import { ChessGame } from "@/components/games/ChessGame";
 import { TetrisGame } from "@/components/games/TetrisGame";
 import { CheckersGame } from "@/components/games/CheckersGame";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function Play() {
   const { state, actions } = useGame();
@@ -34,10 +35,30 @@ export default function Play() {
         </div>
       </div>
 
-      <div className="flex-1">
+      <div className="flex-1 relative">
         {state.selectedGame === 'Chess' && <ChessGame onFinish={handleFinish} />}
         {state.selectedGame === 'Tetris' && <TetrisGame onFinish={handleFinish} />}
         {state.selectedGame === 'Checkers' && <CheckersGame onFinish={handleFinish} />}
+        
+        {/* Prototype Controls Overlay - always visible for testing */}
+        <div className="absolute bottom-4 right-4 flex gap-2 bg-black/80 p-2 rounded-lg border border-white/10 backdrop-blur">
+          <Button 
+            size="sm" 
+            variant="default" 
+            className="bg-green-600 hover:bg-green-700 text-white h-8 px-3"
+            onClick={() => handleFinish('win')}
+          >
+            Win
+          </Button>
+          <Button 
+            size="sm" 
+            variant="destructive" 
+            className="h-8 px-3"
+            onClick={() => handleFinish('loss')}
+          >
+            Lose
+          </Button>
+        </div>
       </div>
     </div>
   );

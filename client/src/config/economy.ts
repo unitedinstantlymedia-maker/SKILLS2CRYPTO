@@ -1,7 +1,7 @@
 // Economy configuration
 
 export const FEE_RATE = 0.03; // 3% platform fee
-export const NETWORK_FEE_USD_PER_PLAYER = 0.25; // $0.25 USD equivalent network fee
+export const NETWORK_FEE_USD_PER_PLAYER = 0; // No network fee for now
 
 // Mock exchange rates for fee calculation
 export const ASSET_PRICES_USD: Record<string, number> = {
