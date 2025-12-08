@@ -132,20 +132,20 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     };
 
     // 2. Try Match
-    console.log("[GameContext] Calling tryMatch...", params);
+    console.log(`[GameContext] Calling tryMatch with params:`, JSON.stringify(params));
     const match = matchmakingService.tryMatch(params, walletState.address);
     
     if (match) {
       // Found immediately
-      console.log("[GameContext] Match found immediately!", match);
+      console.log(`[GameContext] Match found immediately! ID: ${match.id}, Stake: ${match.stake}`);
       setIsFinding(false);
       setCurrentMatch(match);
       // Lock funds
-      console.log("[GameContext] Locking funds...");
+      console.log(`[GameContext] Locking funds for match ${match.id}, Asset: ${match.asset}, Stake: ${match.stake}`);
       await mockEscrowAdapter.lockFunds(match.id, match.asset, match.stake);
     } else {
       // Enqueue
-      console.log("[GameContext] No match found, enqueuing...");
+      console.log(`[GameContext] No match found, enqueuing with params:`, JSON.stringify(params));
       matchmakingService.enqueue(params, walletState.address);
     }
   };

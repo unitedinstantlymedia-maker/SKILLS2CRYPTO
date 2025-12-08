@@ -44,7 +44,7 @@ export default function Lobby() {
   };
 
   const handleStartSearch = async () => {
-    console.log("[Lobby] Start Search clicked");
+    console.log(`[Lobby] Start Search clicked. Stake: ${state.stakeAmount} (Custom: "${customStake}")`);
     
     // Validation
     if (!state.wallet.connected) {

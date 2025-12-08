@@ -39,20 +39,24 @@ export class MatchmakingService {
   // Add player to queue
   enqueue(params: MatchParams, playerId: string): void {
     const queue = this.getQueue();
-    const key = getQueueKey(params.game, params.asset, params.stake);
+    // Ensure stake is a number
+    const safeParams = { ...params, stake: Number(params.stake) };
+    const key = getQueueKey(safeParams.game, safeParams.asset, safeParams.stake);
     const uniqueKey = `${key}:${playerId}`; // Use playerId to prevent duplicate entries from same player? Or allow re-queue?
     
+    console.log(`[Matchmaking] Enqueuing - Key: ${key}, Stake: ${safeParams.stake}, Player: ${playerId}`);
+
     // Check if already in queue to avoid duplicates
     if (queue[uniqueKey]) return;
 
-    queue[uniqueKey] = { ...params, playerId, timestamp: Date.now() };
+    queue[uniqueKey] = { ...safeParams, playerId, timestamp: Date.now() };
     this.setQueue(queue);
-    console.log(`[Matchmaking] Enqueued: ${uniqueKey}`);
+    console.log(`[Matchmaking] Enqueued successfully: ${uniqueKey}`);
 
     // SIMULATION: If in prototype mode, trigger a mock match after a delay if no one joins
     // This allows single player testing
     setTimeout(() => {
-      this.triggerMockMatch(params, playerId);
+      this.triggerMockMatch(safeParams, playerId);
     }, Math.random() * 700 + 800); // 800-1500ms delay
   }
 
@@ -99,7 +103,10 @@ export class MatchmakingService {
   // Try to find a match for the player
   tryMatch(params: MatchParams, playerId: string): Match | null {
     const queue = this.getQueue();
-    const key = getQueueKey(params.game, params.asset, params.stake);
+    const safeParams = { ...params, stake: Number(params.stake) };
+    const key = getQueueKey(safeParams.game, safeParams.asset, safeParams.stake);
+
+    console.log(`[Matchmaking] tryMatch - Key: ${key}, Stake: ${safeParams.stake}`);
 
     // Look for an entry with DIFFERENT playerId in the same bucket
     const waitingEntries = Object.entries(queue).filter(([k, v]) => k.startsWith(key + ":") && v.playerId !== playerId);
@@ -108,6 +115,8 @@ export class MatchmakingService {
       // Match found!
       const [waitingKey, opponent] = waitingEntries[0];
       
+      console.log(`[Matchmaking] Match candidates found: ${waitingEntries.length}. Picking ${waitingKey}`);
+
       // Remove opponent from queue
       delete queue[waitingKey];
       // Remove self from queue if present
@@ -120,9 +129,9 @@ export class MatchmakingService {
       const matchId = Math.random().toString(36).substring(7);
       const match: Match = {
         id: matchId,
-        game: params.game,
-        asset: params.asset,
-        stake: params.stake,
+        game: safeParams.game,
+        asset: safeParams.asset,
+        stake: safeParams.stake,
         status: 'active',
         players: [opponent.playerId, playerId],
         startTime: Date.now()
