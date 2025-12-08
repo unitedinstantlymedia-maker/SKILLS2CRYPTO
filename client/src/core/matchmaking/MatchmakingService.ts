@@ -48,6 +48,52 @@ export class MatchmakingService {
     queue[uniqueKey] = { ...params, playerId, timestamp: Date.now() };
     this.setQueue(queue);
     console.log(`[Matchmaking] Enqueued: ${uniqueKey}`);
+
+    // SIMULATION: If in prototype mode, trigger a mock match after a delay if no one joins
+    // This allows single player testing
+    setTimeout(() => {
+      this.triggerMockMatch(params, playerId);
+    }, Math.random() * 700 + 800); // 800-1500ms delay
+  }
+
+  // Create a mock match against a bot for testing
+  private triggerMockMatch(params: MatchParams, playerId: string) {
+    // Check if player is still in queue (might have cancelled or matched real player)
+    const queue = this.getQueue();
+    const key = getQueueKey(params.game, params.asset, params.stake);
+    const uniqueKey = `${key}:${playerId}`;
+    
+    if (!queue[uniqueKey]) {
+      console.log(`[Matchmaking] Mock match skipped - player no longer in queue: ${uniqueKey}`);
+      return;
+    }
+
+    console.log(`[Matchmaking] Triggering mock match for: ${uniqueKey}`);
+    
+    // Remove self from queue
+    delete queue[uniqueKey];
+    this.setQueue(queue);
+
+    // Create Active Match with Mock Opponent
+    const matchId = Math.random().toString(36).substring(7);
+    const mockOpponentId = `mock_bot_${Math.floor(Math.random() * 1000)}`;
+    
+    const match: Match = {
+      id: matchId,
+      game: params.game,
+      asset: params.asset,
+      stake: params.stake,
+      status: 'active',
+      players: [playerId, mockOpponentId],
+      startTime: Date.now()
+    };
+
+    // Save match
+    const matches = this.getMatches();
+    matches[matchId] = match;
+    this.setMatches(matches);
+
+    console.log(`[Matchmaking] Mock Match Created: ${matchId} vs ${mockOpponentId}`);
   }
 
   // Try to find a match for the player
