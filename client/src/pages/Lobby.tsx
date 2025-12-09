@@ -107,6 +107,11 @@ export default function Lobby() {
   const isBalanceSufficient = currentBalance >= totalCost;
   const isTon = state.selectedAsset === 'TON'; // TON is coming soon
 
+  // Fee Calculation Logic
+  const pot = state.stakeAmount * 2;
+  const fee = pot * 0.03;
+  const payout = pot - fee;
+
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
@@ -183,12 +188,12 @@ export default function Lobby() {
         <Card className="bg-card/50 border-white/10 p-4 space-y-2">
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Pot Size (2x)</span>
-            <span className="font-mono font-bold">{state.stakeAmount * 2} {state.selectedAsset}</span>
+            <span className="font-mono font-bold">{pot.toFixed(4)} {state.selectedAsset}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Fee (3%) deducted</span>
             <span className="font-mono text-muted-foreground">
-              {(state.stakeAmount * 2 * 0.03).toFixed(4)} {state.selectedAsset}
+              {fee.toFixed(4)} {state.selectedAsset}
             </span>
           </div>
           
@@ -207,7 +212,7 @@ export default function Lobby() {
           <div className="border-t border-white/10 my-2 pt-2 flex justify-between text-lg font-display font-bold">
             <span className="text-primary">Potential Win</span>
             <span className="text-primary text-glow">
-              {(state.stakeAmount * 2 * 0.97).toFixed(4)} {state.selectedAsset}
+              {payout.toFixed(4)} {state.selectedAsset}
             </span>
           </div>
         </Card>
