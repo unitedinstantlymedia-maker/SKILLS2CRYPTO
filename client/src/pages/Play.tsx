@@ -39,6 +39,15 @@ export default function Play() {
         {state.selectedGame === 'Chess' && <ChessGame onFinish={handleFinish} />}
         {state.selectedGame === 'Tetris' && <TetrisGame onFinish={handleFinish} />}
         {state.selectedGame === 'Checkers' && <CheckersGame onFinish={handleFinish} />}
+        {state.selectedGame === 'Battleship' && (
+          <div className="flex flex-col items-center justify-center h-full text-center space-y-4 animate-in fade-in duration-500">
+             <div className="w-24 h-24 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
+               <span className="text-4xl">🚢</span>
+             </div>
+             <h2 className="text-2xl font-display font-bold uppercase tracking-wider text-blue-400">Battleship</h2>
+             <p className="text-muted-foreground font-mono">Game interface coming soon!</p>
+          </div>
+        )}
         
         {/* Prototype Controls Overlay - always visible for testing */}
         <div className="absolute bottom-4 right-4 flex gap-2 bg-black/80 p-2 rounded-lg border border-white/10 backdrop-blur">
