@@ -5,33 +5,36 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import battleshipImage from '@assets/stock_images/battleship_navy_ship_31f24312.jpg';
-import stockImage from '@assets/stock_images/classic_tetris_game__1bffc655.jpg';
-import generatedImage from '@assets/generated_images/8-bit_pixel_art_tetris_game.png';
+import stockImage from '@assets/stock_images/classic_tetris_game__1bffc655.jpg'; // Keeping this as backup or unused if I replace it
+import generatedTetrisImage from '@assets/generated_images/8-bit_pixel_art_tetris_game.png';
+import generatedChessImage from '@assets/generated_images/8-bit_pixel_art_chess_game.png';
+import generatedCheckersImage from '@assets/generated_images/8-bit_pixel_art_checkers_game.png';
+import generatedBattleshipImage from '@assets/generated_images/8-bit_pixel_art_battleship_game.png';
 import { useLanguage } from "@/context/LanguageContext";
 
 const GAMES: { id: GameType; name: string; image: string; players: string }[] = [
   { 
     id: 'Chess', 
     name: 'Chess', 
-    image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=2658&auto=format&fit=crop',
+    image: generatedChessImage,
     players: '1.2k'
   },
   { 
     id: 'Tetris', 
     name: 'TETRIS', 
-    image: generatedImage,
+    image: generatedTetrisImage,
     players: '850'
   },
   { 
     id: 'Checkers', 
     name: 'Checkers Pro', 
-    image: 'https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?q=80&w=2525&auto=format&fit=crop',
+    image: generatedCheckersImage,
     players: '430'
   },
   { 
     id: 'Battleship', 
     name: 'Battleship', 
-    image: battleshipImage,
+    image: generatedBattleshipImage,
     players: '342'
   }
 ];
@@ -62,9 +65,9 @@ export default function Games() {
               className="group relative overflow-hidden cursor-pointer border-white/10 hover:border-primary/50 transition-colors"
               onClick={() => handleSelectGame(game.id)}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent z-10" />
               <div 
-                className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                 style={{ backgroundImage: `url(${game.image})` }}
               />
               
