@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import battleshipImage from '@assets/stock_images/battleship_navy_ship_31f24312.jpg';
+import stockImage from '@assets/stock_images/classic_tetris_game__1bffc655.jpg';
 import { useLanguage } from "@/context/LanguageContext";
 
 const GAMES: { id: GameType; name: string; image: string; players: string }[] = [
@@ -16,8 +17,8 @@ const GAMES: { id: GameType; name: string; image: string; players: string }[] = 
   },
   { 
     id: 'Tetris', 
-    name: 'Block Stack', 
-    image: 'https://images.unsplash.com/photo-1596443686812-2f45229eebf3?q=80&w=2565&auto=format&fit=crop',
+    name: 'TETRIS', 
+    image: stockImage,
     players: '850'
   },
   { 
