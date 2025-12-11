@@ -14,7 +14,7 @@ export function BottomNav() {
   const { t } = useLanguage();
 
   const isActive = (path: string) => {
-    if (path === '/games' && (location === '/' || location.startsWith('/games') || location.startsWith('/lobby'))) return true;
+    if (path === '/' && (location === '/' || location.startsWith('/games') || location.startsWith('/lobby') || location.startsWith('/play') || location.startsWith('/result'))) return true;
     return location === path;
   };
 
@@ -42,7 +42,7 @@ export function BottomNav() {
 
   const navItems = [
     { 
-      path: '/games', 
+      path: '/', 
       label: t('Home', 'Home'), 
       icon: Gamepad2,
       color: 'from-green-500/20 to-emerald-500/20',
