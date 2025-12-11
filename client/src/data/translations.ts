@@ -1,7 +1,7 @@
 export const TRANSLATIONS: Record<string, Record<string, string>> = {
   'en': {
     'Select Language': 'Select Language', 'Search language...': 'Search language...', 'No language found.': 'No language found.',
-    'Blitz Chess': 'Blitz Chess', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Checkers Pro', 'Battleship': 'Battleship',
+    'Chess': 'Chess', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Checkers Pro', 'Battleship': 'Battleship',
     'playing': 'playing', '1v1 Crypto Wagers': '1v1 Crypto Wagers',
     'Chess Engine Placeholder': 'Chess Engine Placeholder', 'Tetris Engine Placeholder': 'Tetris Engine Placeholder',
     'Claim Win (Dev)': 'Claim Win (Dev)', 'Resign (Dev)': 'Resign (Dev)', 'Game Over (Dev)': 'Game Over (Dev)',
@@ -14,7 +14,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'ru': {
     'Select Language': 'Выбрать язык', 'Search language...': 'Поиск языка...', 'No language found.': 'Язык не найден.',
-    'Blitz Chess': 'Блиц шахматы', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Шашки', 'Battleship': 'Морской бой',
+    'Chess': 'Шахматы', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Шашки', 'Battleship': 'Морской бой',
     'playing': 'играют', '1v1 Crypto Wagers': '1x1 Крипто Ставки',
     'Chess Engine Placeholder': 'Шахматный движок', 'Tetris Engine Placeholder': 'Движок Тетриса',
     'Claim Win (Dev)': 'Победа (Dev)', 'Resign (Dev)': 'Сдаться (Dev)', 'Game Over (Dev)': 'Конец игры (Dev)',
@@ -27,7 +27,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'es': {
     'Select Language': 'Seleccionar Idioma', 'Search language...': 'Buscar idioma...', 'No language found.': 'Idioma no encontrado.',
-    'Blitz Chess': 'Ajedrez Blitz', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Damas Pro', 'Battleship': 'Batalla Naval',
+    'Chess': 'Ajedrez', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Damas Pro', 'Battleship': 'Batalla Naval',
     'playing': 'jugando', '1v1 Crypto Wagers': 'Apuestas Cripto 1v1',
     'Chess Engine Placeholder': 'Motor de Ajedrez', 'Tetris Engine Placeholder': 'Motor de Tetris',
     'Claim Win (Dev)': 'Reclamar Victoria', 'Resign (Dev)': 'Rendirse', 'Game Over (Dev)': 'Fin del Juego',
@@ -40,7 +40,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'zh': {
     'Select Language': '选择语言', 'Search language...': '搜索语言...', 'No language found.': '未找到语言。',
-    'Blitz Chess': '快棋', 'TETRIS': 'TETRIS', 'Checkers Pro': '跳棋大师', 'Battleship': '海战棋',
+    'Chess': '国际象棋', 'TETRIS': 'TETRIS', 'Checkers Pro': '跳棋大师', 'Battleship': '海战棋',
     'playing': '在玩', '1v1 Crypto Wagers': '1v1 加密货币对战',
     'Chess Engine Placeholder': '国际象棋引擎', 'Tetris Engine Placeholder': '俄罗斯方块引擎',
     'Claim Win (Dev)': '直接获胜 (Dev)', 'Resign (Dev)': '认输 (Dev)', 'Game Over (Dev)': '游戏结束 (Dev)',
@@ -53,7 +53,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'fr': {
     'Select Language': 'Choisir la langue', 'Search language...': 'Rechercher une langue...', 'No language found.': 'Langue non trouvée.',
-    'Blitz Chess': 'Échecs Blitz', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Dames Pro', 'Battleship': 'Bataille Navale',
+    'Chess': 'Échecs', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Dames Pro', 'Battleship': 'Bataille Navale',
     'playing': 'joueurs', '1v1 Crypto Wagers': 'Paris Crypto 1v1',
     'Chess Engine Placeholder': 'Moteur d\'Échecs', 'Tetris Engine Placeholder': 'Moteur Tetris',
     'Claim Win (Dev)': 'Victoire (Dev)', 'Resign (Dev)': 'Abandonner (Dev)', 'Game Over (Dev)': 'Fin du jeu (Dev)',
@@ -66,7 +66,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'de': {
     'Select Language': 'Sprache auswählen', 'Search language...': 'Sprache suchen...', 'No language found.': 'Keine Sprache gefunden.',
-    'Blitz Chess': 'Blitzschach', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Dame Pro', 'Battleship': 'Schiffe versenken',
+    'Chess': 'Schach', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Dame Pro', 'Battleship': 'Schiffe versenken',
     'playing': 'Spieler', '1v1 Crypto Wagers': '1v1 Krypto-Wetten',
     'Chess Engine Placeholder': 'Schach-Engine', 'Tetris Engine Placeholder': 'Tetris-Engine',
     'Claim Win (Dev)': 'Sieg (Dev)', 'Resign (Dev)': 'Aufgeben (Dev)', 'Game Over (Dev)': 'Spiel vorbei (Dev)',
@@ -79,7 +79,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'ja': {
     'Select Language': '言語を選択', 'Search language...': '言語を検索...', 'No language found.': '言語が見つかりません。',
-    'Blitz Chess': 'ブリッツチェス', 'TETRIS': 'TETRIS', 'Checkers Pro': 'チェッカープロ', 'Battleship': 'バトルシップ',
+    'Chess': 'チェス', 'TETRIS': 'TETRIS', 'Checkers Pro': 'チェッカープロ', 'Battleship': 'バトルシップ',
     'playing': 'プレイ中', '1v1 Crypto Wagers': '1v1 クリプト賭け',
     'Chess Engine Placeholder': 'チェスエンジン', 'Tetris Engine Placeholder': 'テトリスエンジン',
     'Claim Win (Dev)': '勝利 (Dev)', 'Resign (Dev)': '投了 (Dev)', 'Game Over (Dev)': 'ゲームオーバー (Dev)',
@@ -92,7 +92,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'ko': {
     'Select Language': '언어 선택', 'Search language...': '언어 검색...', 'No language found.': '언어를 찾을 수 없습니다.',
-    'Blitz Chess': '블리츠 체스', 'TETRIS': 'TETRIS', 'Checkers Pro': '체커 프로', 'Battleship': '배틀쉽',
+    'Chess': '체스', 'TETRIS': 'TETRIS', 'Checkers Pro': '체커 프로', 'Battleship': '배틀쉽',
     'playing': '플레이 중', '1v1 Crypto Wagers': '1v1 암호화폐 내기',
     'Chess Engine Placeholder': '체스 엔진', 'Tetris Engine Placeholder': '테트리스 엔진',
     'Claim Win (Dev)': '승리 (Dev)', 'Resign (Dev)': '기권 (Dev)', 'Game Over (Dev)': '게임 오버 (Dev)',
@@ -105,7 +105,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'pt': {
     'Select Language': 'Selecionar Idioma', 'Search language...': 'Buscar idioma...', 'No language found.': 'Idioma não encontrado.',
-    'Blitz Chess': 'Xadrez Blitz', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Damas Pro', 'Battleship': 'Batalha Naval',
+    'Chess': 'Xadrez', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Damas Pro', 'Battleship': 'Batalha Naval',
     'playing': 'jogando', '1v1 Crypto Wagers': 'Apostas Cripto 1v1',
     'Chess Engine Placeholder': 'Motor de Xadrez', 'Tetris Engine Placeholder': 'Motor de Tetris',
     'Claim Win (Dev)': 'Vitória (Dev)', 'Resign (Dev)': 'Desistir (Dev)', 'Game Over (Dev)': 'Fim de Jogo (Dev)',
@@ -118,7 +118,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'it': {
     'Select Language': 'Seleziona Lingua', 'Search language...': 'Cerca lingua...', 'No language found.': 'Lingua non trovata.',
-    'Blitz Chess': 'Scacchi Blitz', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Dama Pro', 'Battleship': 'Battaglia Navale',
+    'Chess': 'Scacchi', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Dama Pro', 'Battleship': 'Battaglia Navale',
     'playing': 'giocando', '1v1 Crypto Wagers': 'Scommesse Cripto 1v1',
     'Chess Engine Placeholder': 'Motore Scacchi', 'Tetris Engine Placeholder': 'Motore Tetris',
     'Claim Win (Dev)': 'Vittoria (Dev)', 'Resign (Dev)': 'Arrenditi (Dev)', 'Game Over (Dev)': 'Game Over (Dev)',
@@ -131,7 +131,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'hi': {
     'Select Language': 'भाषा चुनें', 'Search language...': 'भाषा खोजें...', 'No language found.': 'कोई भाषा नहीं मिली।',
-    'Blitz Chess': 'ब्लिट्ज शतरंज', 'TETRIS': 'TETRIS', 'Checkers Pro': 'चेकर्स प्रो', 'Battleship': 'बैटलशिप',
+    'Chess': 'शतरंज', 'TETRIS': 'TETRIS', 'Checkers Pro': 'चेकर्स प्रो', 'Battleship': 'बैटलशिप',
     'playing': 'खेल रहे हैं', '1v1 Crypto Wagers': '1v1 क्रिप्टो दांव',
     'Chess Engine Placeholder': 'शतरंज इंजन', 'Tetris Engine Placeholder': 'टेट्रिस इंजन',
     'Claim Win (Dev)': 'जीत का दावा', 'Resign (Dev)': 'इस्तीफा', 'Game Over (Dev)': 'खेल खत्म',
@@ -144,7 +144,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'ar': {
     'Select Language': 'اختر اللغة', 'Search language...': 'بحث عن لغة...', 'No language found.': 'لم يتم العثور على لغة.',
-    'Blitz Chess': 'شطرنج سريع', 'TETRIS': 'TETRIS', 'Checkers Pro': 'لعبة الداما', 'Battleship': 'سفينة حربية',
+    'Chess': 'شطرنج', 'TETRIS': 'TETRIS', 'Checkers Pro': 'لعبة الداما', 'Battleship': 'سفينة حربية',
     'playing': 'يلعب', '1v1 Crypto Wagers': 'رهانات العملات المشفرة 1v1',
     'Chess Engine Placeholder': 'محرك الشطرنج', 'Tetris Engine Placeholder': 'محرك تتريس',
     'Claim Win (Dev)': 'المطالبة بالفوز', 'Resign (Dev)': 'استسلام', 'Game Over (Dev)': 'انتهت اللعبة',
@@ -160,7 +160,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     ...acc,
     [lang]: {
       'Select Language': 'Select Language', 'Search language...': 'Search language...', 'No language found.': 'No language found.',
-      'Blitz Chess': 'Blitz Chess', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Checkers Pro', 'Battleship': 'Battleship',
+      'Chess': 'Chess', 'TETRIS': 'TETRIS', 'Checkers Pro': 'Checkers Pro', 'Battleship': 'Battleship',
       'playing': 'playing', '1v1 Crypto Wagers': '1v1 Crypto Wagers',
       'Chess Engine Placeholder': 'Chess Engine Placeholder', 'Tetris Engine Placeholder': 'Tetris Engine Placeholder',
       'Claim Win (Dev)': 'Claim Win (Dev)', 'Resign (Dev)': 'Resign (Dev)', 'Game Over (Dev)': 'Game Over (Dev)',

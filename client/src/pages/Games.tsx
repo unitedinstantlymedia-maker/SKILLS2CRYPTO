@@ -6,19 +6,20 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import battleshipImage from '@assets/stock_images/battleship_navy_ship_31f24312.jpg';
 import stockImage from '@assets/stock_images/classic_tetris_game__1bffc655.jpg';
+import generatedImage from '@assets/generated_images/8-bit_pixel_art_tetris_game.png';
 import { useLanguage } from "@/context/LanguageContext";
 
 const GAMES: { id: GameType; name: string; image: string; players: string }[] = [
   { 
     id: 'Chess', 
-    name: 'Blitz Chess', 
+    name: 'Chess', 
     image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=2658&auto=format&fit=crop',
     players: '1.2k'
   },
   { 
     id: 'Tetris', 
     name: 'TETRIS', 
-    image: stockImage,
+    image: generatedImage,
     players: '850'
   },
   { 
