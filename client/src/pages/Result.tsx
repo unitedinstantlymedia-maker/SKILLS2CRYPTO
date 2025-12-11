@@ -6,6 +6,7 @@ import { Trophy, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import { ShareButton } from "@/components/ui/ShareButton";
 
 export default function Result() {
   const { state, actions } = useGame();
@@ -37,7 +38,10 @@ export default function Result() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] space-y-8 text-center">
+    <div className="flex flex-col items-center justify-center min-h-[70vh] space-y-8 text-center relative">
+      <div className="absolute top-0 right-0">
+        <ShareButton />
+      </div>
       <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

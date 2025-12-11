@@ -2,6 +2,7 @@ import { useGame } from "@/context/GameContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";
 import { Trophy, XCircle } from "lucide-react";
+import { ShareButton } from "@/components/ui/ShareButton";
 
 export default function History() {
   const { state } = useGame();
@@ -9,7 +10,10 @@ export default function History() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-display font-bold uppercase tracking-wider">Match History</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-display font-bold uppercase tracking-wider">Match History</h1>
+        <ShareButton />
+      </div>
 
       {history.length === 0 ? (
         <div className="text-center py-12 text-muted-foreground">

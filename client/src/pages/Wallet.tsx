@@ -2,6 +2,7 @@ import { useGame } from "@/context/GameContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Copy, Wallet as WalletIcon, ShieldCheck } from "lucide-react";
+import { ShareButton } from "@/components/ui/ShareButton";
 
 export default function Wallet() {
   const { state, actions } = useGame();
@@ -40,7 +41,10 @@ export default function Wallet() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-display font-bold uppercase tracking-wider">My Wallet</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-display font-bold uppercase tracking-wider">My Wallet</h1>
+        <ShareButton />
+      </div>
 
       {/* Connected Status */}
       <Card className="bg-gradient-to-br from-primary/10 to-card border-primary/30">

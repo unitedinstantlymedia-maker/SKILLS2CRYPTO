@@ -13,6 +13,7 @@ import { Link } from "wouter";
 import { mockEscrowAdapter } from "@/core/escrow/MockEscrowAdapter";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
+import { ShareButton } from "@/components/ui/ShareButton";
 
 export default function Lobby() {
   const { state, actions } = useGame();
@@ -126,6 +127,7 @@ export default function Lobby() {
           <h1 className="text-2xl font-display font-bold uppercase tracking-wider">Lobby</h1>
           <p className="text-muted-foreground text-sm">{state.selectedGame}</p>
         </div>
+        <ShareButton className="ml-auto" />
       </div>
 
       <div className="space-y-6">
