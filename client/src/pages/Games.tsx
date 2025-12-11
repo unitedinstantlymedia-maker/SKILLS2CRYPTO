@@ -6,35 +6,35 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import battleshipImage from '@assets/stock_images/battleship_navy_ship_31f24312.jpg';
 import stockImage from '@assets/stock_images/classic_tetris_game__1bffc655.jpg'; // Keeping this as backup or unused if I replace it
-import elegantChessImage from '@assets/generated_images/elegant_grayscale_chess_with_blue_accent.png';
-import elegantTetrisImage from '@assets/generated_images/elegant_grayscale_tetris_blocks_with_purple_accent.png';
-import elegantCheckersImage from '@assets/generated_images/elegant_grayscale_checkers_with_orange_accent.png';
-import elegantBattleshipImage from '@assets/generated_images/elegant_grayscale_battleship_with_teal_accent.png';
+import photorealisticChessImage from '@assets/generated_images/elegant_photorealistic_chess_pieces.png';
+import cleanTetrisImage from '@assets/generated_images/clean_3d_colorful_tetris_blocks.png';
+import photorealisticCheckersImage from '@assets/generated_images/classic_photorealistic_checkers_board.png';
+import cinematicBattleshipImage from '@assets/generated_images/cinematic_realistic_battleship_game.png';
 import { useLanguage } from "@/context/LanguageContext";
 
 const GAMES: { id: GameType; name: string; image: string; players: string }[] = [
   { 
     id: 'Chess', 
     name: 'Chess', 
-    image: elegantChessImage,
+    image: photorealisticChessImage,
     players: '1.2k'
   },
   { 
     id: 'Tetris', 
     name: 'TETRIS', 
-    image: elegantTetrisImage,
+    image: cleanTetrisImage,
     players: '850'
   },
   { 
     id: 'Checkers', 
     name: 'Checkers Pro', 
-    image: elegantCheckersImage,
+    image: photorealisticCheckersImage,
     players: '430'
   },
   { 
     id: 'Battleship', 
     name: 'Battleship', 
-    image: elegantBattleshipImage,
+    image: cinematicBattleshipImage,
     players: '342'
   }
 ];
@@ -68,7 +68,7 @@ export default function Games() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
               <div className="absolute inset-0 bg-black/20 z-[5] backdrop-blur-[1px]" />
               <div 
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[0.2]"
+                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 style={{ backgroundImage: `url(${game.image})` }}
               />
               
