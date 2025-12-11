@@ -1,8 +1,11 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Landing() {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8 text-center">
       <motion.div 
@@ -27,13 +30,13 @@ export default function Landing() {
       >
         <Link href="/games">
           <Button className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow">
-            Play Now
+            {t('Play Now', 'Play Now')}
           </Button>
         </Link>
         
         <Link href="/rules">
           <Button variant="outline" className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest border-white/10 hover:bg-white/5 hover:text-white">
-            Rules & Risks
+            {t('Rules & Risks', 'Rules & Risks')}
           </Button>
         </Link>
       </motion.div>

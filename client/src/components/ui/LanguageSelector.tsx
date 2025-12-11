@@ -27,17 +27,18 @@ export function LanguageSelector() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          className="h-9 px-2 gap-2 text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-full"
-        >
-          <span className="text-lg">{currentLanguage.flag}</span>
-          <span className="hidden xs:inline-block text-sm font-medium">
-            {currentLanguage.code.toUpperCase()}
+        <div className="flex flex-col items-center cursor-pointer group">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="h-10 w-10 rounded-full bg-white/5 hover:bg-white/10 hover:text-white border border-white/10"
+          >
+            <span className="text-2xl leading-none filter drop-shadow-md group-hover:scale-110 transition-transform">{currentLanguage.flag}</span>
+          </Button>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground group-hover:text-primary transition-colors mt-1">
+            Select Language
           </span>
-          <span className="sr-only">Select language</span>
-        </Button>
+        </div>
       </DialogTrigger>
       <DialogContent className="p-0 gap-0 bg-background/95 backdrop-blur-xl border-white/10 sm:max-w-[425px]">
         <DialogHeader className="px-4 py-3 border-b border-white/10">

@@ -5,10 +5,12 @@ import { TetrisGame } from "@/components/games/TetrisGame";
 import { CheckersGame } from "@/components/games/CheckersGame";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Play() {
   const { state, actions } = useGame();
   const [, setLocation] = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (!state.currentMatch) {
@@ -28,10 +30,10 @@ export default function Play() {
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="font-mono text-xs uppercase text-muted-foreground">Live Match</span>
+          <span className="font-mono text-xs uppercase text-muted-foreground">{t('Live Match', 'Live Match')}</span>
         </div>
         <div className="font-mono font-bold text-primary">
-          Pot: {(state.currentMatch?.stake || 0) * 2} {state.selectedAsset}
+          {t('Pot Size', 'Pot')}: {(state.currentMatch?.stake || 0) * 2} {state.selectedAsset}
         </div>
       </div>
 

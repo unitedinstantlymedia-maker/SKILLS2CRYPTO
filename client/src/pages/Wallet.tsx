@@ -3,10 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Copy, Wallet as WalletIcon, ShieldCheck } from "lucide-react";
 import { ShareButton } from "@/components/ui/ShareButton";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Wallet() {
   const { state, actions } = useGame();
   const { wallet } = state;
+  const { t } = useLanguage();
 
   const handleConnect = async () => {
     await actions.connectWallet();
@@ -23,7 +25,7 @@ export default function Wallet() {
         </div>
         
         <div className="space-y-2">
-          <h1 className="text-3xl font-display font-bold uppercase tracking-wider">Connect Wallet</h1>
+          <h1 className="text-3xl font-display font-bold uppercase tracking-wider">{t('Connect Wallet', 'Connect Wallet')}</h1>
           <p className="text-muted-foreground max-w-xs mx-auto">
             Connect your non-custodial wallet to play. No registration required.
           </p>
@@ -33,7 +35,7 @@ export default function Wallet() {
           onClick={handleConnect}
           className="h-14 px-8 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow"
         >
-          Connect Now
+          {t('Connect Now', 'Connect Now')}
         </Button>
       </div>
     );
@@ -42,7 +44,7 @@ export default function Wallet() {
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-display font-bold uppercase tracking-wider">My Wallet</h1>
+        <h1 className="text-2xl font-display font-bold uppercase tracking-wider">{t('My Wallet', 'My Wallet')}</h1>
         <ShareButton />
       </div>
 
@@ -53,7 +55,7 @@ export default function Wallet() {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-primary" />
-                <CardTitle className="text-sm text-primary font-bold uppercase tracking-wider">Connected Securely</CardTitle>
+                <CardTitle className="text-sm text-primary font-bold uppercase tracking-wider">{t('Connected Securely', 'Connected Securely')}</CardTitle>
               </div>
               <div className="flex items-center gap-2 font-mono text-lg text-white">
                 {wallet.address}
@@ -67,8 +69,8 @@ export default function Wallet() {
       {/* User Balances */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Your Balances</h2>
-          <span className="text-[10px] font-mono text-primary/70 border border-primary/30 px-2 py-1 rounded">Test mode (simulated)</span>
+          <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('Your Balances', 'Your Balances')}</h2>
+          <span className="text-[10px] font-mono text-primary/70 border border-primary/30 px-2 py-1 rounded">{t('Test mode (simulated)', 'Test mode (simulated)')}</span>
         </div>
         
         {(['USDT', 'ETH', 'TON'] as const).map((asset) => (

@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { ShareButton } from "@/components/ui/ShareButton";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Result() {
   const { state, actions } = useGame();
   const [, setLocation] = useLocation();
+  const { t } = useLanguage();
 
   const result = state.currentMatch?.result;
   const isWin = result === 'win';
@@ -58,32 +60,32 @@ export default function Result() {
         )}
         
         <h1 className={`text-5xl font-display font-bold uppercase tracking-tighter ${isWin ? 'text-primary text-glow' : 'text-muted-foreground'}`}>
-          {isWin ? 'Victory' : 'Defeat'}
+          {isWin ? t('Victory', 'Victory') : t('Defeat', 'Defeat')}
         </h1>
       </motion.div>
 
       <Card className="w-full bg-card/50 border-white/10 p-6 space-y-4 backdrop-blur-sm">
         <div className="space-y-1">
-          <p className="text-sm text-muted-foreground uppercase tracking-wider">Total Payout</p>
+          <p className="text-sm text-muted-foreground uppercase tracking-wider">{t('Total Payout', 'Total Payout')}</p>
           <p className={`text-3xl font-mono font-bold ${isWin ? 'text-white' : 'text-muted-foreground'}`}>
             {payout.toFixed(4)} {state.selectedAsset}
           </p>
           {isWin && (
             <p className="text-sm text-green-400 font-mono">
-              Profit: +{(payout - (state.currentMatch?.stake || 0)).toFixed(4)} {state.selectedAsset}
+              {t('Profit', 'Profit')}: +{(payout - (state.currentMatch?.stake || 0)).toFixed(4)} {state.selectedAsset}
             </p>
           )}
         </div>
         
         {isWin && (
           <div className="pt-4 border-t border-white/10 text-xs text-muted-foreground flex justify-between">
-            <span>Fee (3%) deducted</span>
+            <span>{t('Fee', 'Fee')} (3%) deducted</span>
             <span>{state.currentMatch?.fee?.toFixed(4)} {state.selectedAsset}</span>
           </div>
         )}
         
         <div className="pt-2 border-t border-white/5 text-xs text-muted-foreground flex justify-between">
-             <span>Initial Stake</span>
+             <span>{t('Initial Stake', 'Initial Stake')}</span>
              <span>{state.currentMatch?.stake.toFixed(4)} {state.selectedAsset}</span>
         </div>
       </Card>
@@ -93,12 +95,12 @@ export default function Result() {
           onClick={handlePlayAgain}
           className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest bg-white text-black hover:bg-white/90"
         >
-          Play Again
+          {t('Play Again', 'Play Again')}
         </Button>
         
         <Link href="/">
           <Button variant="ghost" className="w-full text-muted-foreground hover:text-white">
-            Back to Home
+            {t('Back to Home', 'Back to Home')}
           </Button>
         </Link>
       </div>
