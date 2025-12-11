@@ -54,8 +54,8 @@ export default function Lobby() {
     // Validation
     if (!state.wallet.connected) {
       toast({
-        title: "Wallet not connected",
-        description: "Please connect your wallet to play.",
+        title: t("Wallet not connected", "Wallet not connected"),
+        description: t("Please connect your wallet to play.", "Please connect your wallet to play."),
         variant: "destructive"
       });
       return;
@@ -63,8 +63,8 @@ export default function Lobby() {
 
     if (state.stakeAmount <= 0) {
       toast({
-        title: "Invalid Wager",
-        description: "Please select a wager amount greater than 0.",
+        title: t("Invalid Wager", "Invalid Wager"),
+        description: t("Please select a wager amount greater than 0.", "Please select a wager amount greater than 0."),
         variant: "destructive"
       });
       return;
@@ -76,8 +76,8 @@ export default function Lobby() {
 
     if (currentBalance < totalCost) {
       toast({
-        title: "Insufficient Balance",
-        description: `You need ${totalCost.toFixed(4)} ${state.selectedAsset} but only have ${currentBalance.toFixed(4)}.`,
+        title: t("Insufficient Balance", "Insufficient Balance"),
+        description: `${t('You need', 'You need')} ${totalCost.toFixed(4)} ${state.selectedAsset} ${t('but only have', 'but only have')} ${currentBalance.toFixed(4)}.`,
         variant: "destructive"
       });
       // Allow proceeding if they insist? 
@@ -146,7 +146,7 @@ export default function Lobby() {
               >
                 {asset}
                 {asset === 'TON' && (
-                  <span className="absolute -top-2 -right-2 text-[8px] bg-accent text-accent-foreground px-1.5 py-0.5 rounded-full uppercase font-bold">Soon</span>
+                  <span className="absolute -top-2 -right-2 text-[8px] bg-accent text-accent-foreground px-1.5 py-0.5 rounded-full uppercase font-bold">{t('Soon', 'Soon')}</span>
                 )}
               </ToggleGroupItem>
             ))}
@@ -206,14 +206,14 @@ export default function Lobby() {
           {/* Network Fee Estimate */}
           <div className="flex justify-between text-sm pt-2 border-t border-white/5">
              <div className="flex items-center gap-1 text-muted-foreground">
-               <span>Est. Network Fee</span>
+               <span>{t('Est. Network Fee', 'Est. Network Fee')}</span>
                <Info className="h-3 w-3" />
              </div>
              <span className="font-mono text-xs text-muted-foreground">
                {networkFee > 0 ? `~${networkFee.toFixed(5)} ${state.selectedAsset}` : '0.00'}
              </span>
           </div>
-          <p className="text-[10px] text-muted-foreground/60 text-right">Paid by you (deducted from balance)</p>
+          <p className="text-[10px] text-muted-foreground/60 text-right">{t('Paid by you (deducted from balance)', 'Paid by you (deducted from balance)')}</p>
 
           <div className="border-t border-white/10 my-2 pt-2 flex justify-between text-lg font-display font-bold">
             <span className="text-primary">{t('Potential Win', 'Potential Win')}</span>

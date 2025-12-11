@@ -12,25 +12,25 @@ const GAMES: { id: GameType; name: string; image: string; players: string }[] = 
     id: 'Chess', 
     name: 'Blitz Chess', 
     image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=2658&auto=format&fit=crop',
-    players: '1.2k playing'
+    players: '1.2k'
   },
   { 
     id: 'Tetris', 
     name: 'Block Stack', 
     image: 'https://images.unsplash.com/photo-1596443686812-2f45229eebf3?q=80&w=2565&auto=format&fit=crop',
-    players: '850 playing'
+    players: '850'
   },
   { 
     id: 'Checkers', 
     name: 'Checkers Pro', 
     image: 'https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?q=80&w=2525&auto=format&fit=crop',
-    players: '430 playing'
+    players: '430'
   },
   { 
     id: 'Battleship', 
     name: 'Battleship', 
     image: battleshipImage,
-    players: '342 playing'
+    players: '342'
   }
 ];
 
@@ -68,11 +68,11 @@ export default function Games() {
               
               <CardContent className="relative z-20 p-6 h-32 flex flex-col justify-center">
                 <h2 className="text-2xl font-display font-bold uppercase tracking-wider text-white group-hover:text-primary transition-colors">
-                  {game.name}
+                  {t(game.name, game.name)}
                 </h2>
                 <p className="text-sm text-muted-foreground font-mono mt-1 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  {game.players}
+                  {game.players} {t('playing', 'playing')}
                 </p>
               </CardContent>
             </Card>

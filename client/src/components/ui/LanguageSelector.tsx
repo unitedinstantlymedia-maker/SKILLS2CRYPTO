@@ -22,7 +22,7 @@ import { LANGUAGES } from "@/data/languages";
 
 export function LanguageSelector() {
   const [open, setOpen] = useState(false);
-  const { currentLanguage, setLanguage } = useLanguage();
+  const { currentLanguage, setLanguage, t } = useLanguage();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -36,18 +36,18 @@ export function LanguageSelector() {
             <span className="text-2xl leading-none filter drop-shadow-md group-hover:scale-110 transition-transform">{currentLanguage.flag}</span>
           </Button>
           <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground group-hover:text-primary transition-colors mt-1">
-            Select Language
+            {t('Select Language', 'Select Language')}
           </span>
         </div>
       </DialogTrigger>
       <DialogContent className="p-0 gap-0 bg-background/95 backdrop-blur-xl border-white/10 sm:max-w-[425px]">
         <DialogHeader className="px-4 py-3 border-b border-white/10">
-          <DialogTitle className="text-lg font-display tracking-wide">Select Language</DialogTitle>
+          <DialogTitle className="text-lg font-display tracking-wide">{t('Select Language', 'Select Language')}</DialogTitle>
         </DialogHeader>
         <Command className="bg-transparent">
-          <CommandInput placeholder="Search language..." />
+          <CommandInput placeholder={t('Search language...', 'Search language...')} />
           <CommandList className="max-h-[60vh] overflow-y-auto custom-scrollbar">
-            <CommandEmpty>No language found.</CommandEmpty>
+            <CommandEmpty>{t('No language found.', 'No language found.')}</CommandEmpty>
             <CommandGroup>
               {LANGUAGES.map((language) => (
                 <CommandItem

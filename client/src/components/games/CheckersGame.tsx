@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function CheckersGame({ onFinish }: { onFinish: (result: 'win' | 'loss') => void }) {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col items-center justify-center h-full space-y-8">
       <div className="w-full aspect-square bg-black/40 border-2 border-white/10 rounded-lg grid grid-cols-8 grid-rows-8 relative overflow-hidden">
@@ -23,10 +26,10 @@ export function CheckersGame({ onFinish }: { onFinish: (result: 'win' | 'loss') 
       
       <div className="grid grid-cols-2 gap-4 w-full">
         <Button onClick={() => onFinish('win')} className="bg-primary text-primary-foreground hover:bg-primary/90 font-display uppercase tracking-widest">
-          Claim Win (Dev)
+          {t('Claim Win (Dev)', 'Claim Win (Dev)')}
         </Button>
         <Button onClick={() => onFinish('loss')} variant="destructive" className="font-display uppercase tracking-widest">
-          Resign (Dev)
+          {t('Resign (Dev)', 'Resign (Dev)')}
         </Button>
       </div>
     </div>

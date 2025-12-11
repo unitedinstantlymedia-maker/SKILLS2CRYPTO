@@ -18,7 +18,7 @@ export default function Landing() {
           SKILL<br/>BLITZ
         </h1>
         <p className="text-muted-foreground text-lg font-light tracking-wide">
-          1v1 Crypto Wagers
+          {t('1v1 Crypto Wagers', '1v1 Crypto Wagers')}
         </p>
       </motion.div>
 

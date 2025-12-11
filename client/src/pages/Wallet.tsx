@@ -27,7 +27,7 @@ export default function Wallet() {
         <div className="space-y-2">
           <h1 className="text-3xl font-display font-bold uppercase tracking-wider">{t('Connect Wallet', 'Connect Wallet')}</h1>
           <p className="text-muted-foreground max-w-xs mx-auto">
-            Connect your non-custodial wallet to play. No registration required.
+            {t('Connect your non-custodial wallet to play. No registration required.', 'Connect your non-custodial wallet to play. No registration required.')}
           </p>
         </div>
 
