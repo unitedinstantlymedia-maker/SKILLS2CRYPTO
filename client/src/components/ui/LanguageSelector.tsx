@@ -1,0 +1,84 @@
+import { useState } from "react";
+import { Check, Globe, Search } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useLanguage } from "@/context/LanguageContext";
+import { LANGUAGES } from "@/data/languages";
+
+export function LanguageSelector() {
+  const [open, setOpen] = useState(false);
+  const { currentLanguage, setLanguage } = useLanguage();
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="h-9 px-2 gap-2 text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-full"
+        >
+          <span className="text-lg">{currentLanguage.flag}</span>
+          <span className="hidden xs:inline-block text-sm font-medium">
+            {currentLanguage.code.toUpperCase()}
+          </span>
+          <span className="sr-only">Select language</span>
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="p-0 gap-0 bg-background/95 backdrop-blur-xl border-white/10 sm:max-w-[425px]">
+        <DialogHeader className="px-4 py-3 border-b border-white/10">
+          <DialogTitle className="text-lg font-display tracking-wide">Select Language</DialogTitle>
+        </DialogHeader>
+        <Command className="bg-transparent">
+          <CommandInput placeholder="Search language..." />
+          <CommandList className="max-h-[60vh] overflow-y-auto custom-scrollbar">
+            <CommandEmpty>No language found.</CommandEmpty>
+            <CommandGroup>
+              {LANGUAGES.map((language) => (
+                <CommandItem
+                  key={language.code}
+                  value={`${language.name} ${language.nativeName}`}
+                  onSelect={() => {
+                    setLanguage(language.code);
+                    setOpen(false);
+                  }}
+                  className="flex items-center gap-3 py-3 px-4 cursor-pointer aria-selected:bg-white/5"
+                >
+                  <span className="text-2xl">{language.flag}</span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-foreground">
+                      {language.nativeName}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {language.name}
+                    </span>
+                  </div>
+                  <Check
+                    className={cn(
+                      "ml-auto h-4 w-4 text-primary",
+                      currentLanguage.code === language.code ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </DialogContent>
+    </Dialog>
+  );
+}

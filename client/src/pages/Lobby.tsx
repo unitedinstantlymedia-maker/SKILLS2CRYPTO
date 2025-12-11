@@ -14,12 +14,14 @@ import { mockEscrowAdapter } from "@/core/escrow/MockEscrowAdapter";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
 import { ShareButton } from "@/components/ui/ShareButton";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Lobby() {
   const { state, actions } = useGame();
   const [, setLocation] = useLocation();
   const [customStake, setCustomStake] = useState<string>("");
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (!state.selectedGame) {
@@ -124,7 +126,7 @@ export default function Lobby() {
           </Button>
         </Link>
         <div>
-          <h1 className="text-2xl font-display font-bold uppercase tracking-wider">Lobby</h1>
+          <h1 className="text-2xl font-display font-bold uppercase tracking-wider">{t('Lobby', 'Lobby')}</h1>
           <p className="text-muted-foreground text-sm">{state.selectedGame}</p>
         </div>
         <ShareButton className="ml-auto" />
@@ -133,7 +135,7 @@ export default function Lobby() {
       <div className="space-y-6">
         {/* Asset Selection */}
         <div className="space-y-3">
-          <label className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Select Asset</label>
+          <label className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('Select Asset', 'Select Asset')}</label>
           <ToggleGroup type="single" value={state.selectedAsset} onValueChange={handleAssetChange} className="justify-start gap-3">
             {(['USDT', 'ETH', 'TON'] as Asset[]).map((asset) => (
               <ToggleGroupItem 
@@ -150,7 +152,7 @@ export default function Lobby() {
             ))}
           </ToggleGroup>
           <p className="text-xs font-mono text-muted-foreground ml-1">
-            Balance: <span className={isBalanceSufficient ? "text-white" : "text-destructive font-bold"}>
+            {t('Balance', 'Balance')}: <span className={isBalanceSufficient ? "text-white" : "text-destructive font-bold"}>
               {currentBalance.toFixed(4)} {state.selectedAsset}
             </span>
           </p>
@@ -158,7 +160,7 @@ export default function Lobby() {
 
         {/* Stake Selection */}
         <div className="space-y-3">
-          <label className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Wager Amount</label>
+          <label className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('Wager Amount', 'Wager Amount')}</label>
           <div className="grid grid-cols-4 gap-2">
             {STAKE_PRESETS.map((amount) => (
               <Button
@@ -191,11 +193,11 @@ export default function Lobby() {
         {/* Summary Card */}
         <Card className="bg-card/50 border-white/10 p-4 space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Pot Size (2x)</span>
+            <span className="text-muted-foreground">{t('Pot Size', 'Pot Size')} (2x)</span>
             <span className="font-mono font-bold">{pot.toFixed(4)} {state.selectedAsset}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Fee (3%) deducted</span>
+            <span className="text-muted-foreground">{t('Fee', 'Fee')} (3%) deducted</span>
             <span className="font-mono text-muted-foreground">
               {fee.toFixed(4)} {state.selectedAsset}
             </span>
@@ -214,7 +216,7 @@ export default function Lobby() {
           <p className="text-[10px] text-muted-foreground/60 text-right">Paid by you (deducted from balance)</p>
 
           <div className="border-t border-white/10 my-2 pt-2 flex justify-between text-lg font-display font-bold">
-            <span className="text-primary">Potential Win</span>
+            <span className="text-primary">{t('Potential Win', 'Potential Win')}</span>
             <span className="text-primary text-glow">
               {payout.toFixed(4)} {state.selectedAsset}
             </span>
@@ -227,7 +229,7 @@ export default function Lobby() {
             variant="destructive"
             className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest border-glow animate-pulse"
           >
-            <X className="mr-2 h-5 w-5" /> Cancel Search
+            <X className="mr-2 h-5 w-5" /> {t('Cancel Search', 'Cancel Search')}
           </Button>
         ) : (
           <Button 
@@ -237,11 +239,11 @@ export default function Lobby() {
           >
             {!isBalanceSufficient ? (
                <>
-                 <Zap className="mr-2 h-5 w-5" /> Find Match (Check Bal)
+                 <Zap className="mr-2 h-5 w-5" /> {t('Find Match', 'Find Match')} (Check Bal)
                </>
             ) : (
                <>
-                 <Zap className="mr-2 h-5 w-5" /> Find Match
+                 <Zap className="mr-2 h-5 w-5" /> {t('Find Match', 'Find Match')}
                </>
             )}
           </Button>
@@ -249,7 +251,7 @@ export default function Lobby() {
         
         {state.isFinding && (
            <div className="text-center text-xs text-muted-foreground animate-pulse">
-             Searching for opponent... ({state.selectedAsset} {state.stakeAmount})
+             {t('Searching for opponent...', 'Searching for opponent...')} ({state.selectedAsset} {state.stakeAmount})
            </div>
         )}
       </div>

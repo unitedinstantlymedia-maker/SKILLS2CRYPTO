@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import battleshipImage from '@assets/stock_images/battleship_navy_ship_31f24312.jpg';
+import { useLanguage } from "@/context/LanguageContext";
 
 const GAMES: { id: GameType; name: string; image: string; players: string }[] = [
   { 
@@ -36,6 +37,7 @@ const GAMES: { id: GameType; name: string; image: string; players: string }[] = 
 export default function Games() {
   const { actions } = useGame();
   const [, setLocation] = useLocation();
+  const { t } = useLanguage();
 
   const handleSelectGame = (gameId: GameType) => {
     actions.selectGame(gameId as any); // Cast for safety if types slightly mismatch
@@ -44,7 +46,7 @@ export default function Games() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-display font-bold uppercase tracking-wider text-glow">Select Game</h1>
+      <h1 className="text-3xl font-display font-bold uppercase tracking-wider text-glow">{t('Select Game', 'Select Game')}</h1>
       
       <div className="grid gap-4">
         {GAMES.map((game, index) => (

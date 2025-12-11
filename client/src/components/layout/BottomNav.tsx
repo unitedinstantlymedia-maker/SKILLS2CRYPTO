@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { ShareDialog } from "@/components/share/ShareDialog";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function BottomNav() {
   const [location] = useLocation();
   const { toast } = useToast();
   const [shareOpen, setShareOpen] = useState(false);
+  const { t } = useLanguage();
 
   const isActive = (path: string) => {
     if (path === '/games' && (location === '/' || location.startsWith('/games') || location.startsWith('/lobby'))) return true;
@@ -41,7 +43,7 @@ export function BottomNav() {
   const navItems = [
     { 
       path: '/games', 
-      label: 'Play', 
+      label: t('Home', 'Home'), 
       icon: Gamepad2,
       color: 'from-green-500/20 to-emerald-500/20',
       borderColor: 'border-green-500/50',
@@ -50,7 +52,7 @@ export function BottomNav() {
     },
     { 
       path: '/wallet', 
-      label: 'Wallet', 
+      label: t('Wallet', 'Wallet'), 
       icon: Wallet,
       color: 'from-blue-500/20 to-cyan-500/20',
       borderColor: 'border-blue-500/50',
@@ -59,7 +61,7 @@ export function BottomNav() {
     },
     { 
       path: '/history', 
-      label: 'History', 
+      label: t('History', 'History'), 
       icon: History,
       color: 'from-purple-500/20 to-pink-500/20',
       borderColor: 'border-purple-500/50',
@@ -68,7 +70,7 @@ export function BottomNav() {
     },
     { 
       path: '#share', 
-      label: 'Share', 
+      label: t('Profile', 'Profile'), 
       icon: Share2,
       color: 'from-orange-500/20 to-amber-500/20',
       borderColor: 'border-orange-500/50',
