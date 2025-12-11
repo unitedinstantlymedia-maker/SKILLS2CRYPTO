@@ -27,7 +27,7 @@ export default function Rules() {
             </div>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground leading-relaxed">
-            Matches are 1v1 skill-based. No chance involved. The winner takes the pot minus fees.
+            {t('Matches are 1v1 skill-based. No chance involved. The winner takes the pot minus fees.', 'Matches are 1v1 skill-based. No chance involved. The winner takes the pot minus fees.')}
           </CardContent>
         </Card>
 
@@ -39,7 +39,7 @@ export default function Rules() {
             </div>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground leading-relaxed">
-            We support USDT, ETH, and TON. Ensure you have sufficient balance before playing. Wagers are locked in escrow during the match.
+            {t('We support USDT, ETH, and TON. Ensure you have sufficient balance before playing. Wagers are locked in escrow during the match.', 'We support USDT, ETH, and TON. Ensure you have sufficient balance before playing. Wagers are locked in escrow during the match.')}
           </CardContent>
         </Card>
 
@@ -51,7 +51,7 @@ export default function Rules() {
             </div>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground leading-relaxed">
-            A flat 3% fee is deducted from the total pot of every match to support platform development and maintenance.
+            {t('A flat 3% fee is deducted from the total pot of every match to support platform development and maintenance.', 'A flat 3% fee is deducted from the total pot of every match to support platform development and maintenance.')}
           </CardContent>
         </Card>
 
@@ -63,7 +63,7 @@ export default function Rules() {
             </div>
           </CardHeader>
           <CardContent className="text-sm text-destructive-foreground/80 leading-relaxed">
-            This is a prototype. Games are simulated for demonstration. Do not use real funds yet.
+            {t('This is a prototype. Games are simulated for demonstration. Do not use real funds yet.', 'This is a prototype. Games are simulated for demonstration. Do not use real funds yet.')}
           </CardContent>
         </Card>
       </div>
