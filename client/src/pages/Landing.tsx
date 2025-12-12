@@ -23,9 +23,15 @@ export default function Landing() {
         transition={{ duration: 0.5 }}
         className="space-y-2"
       >
-        <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow">
-          SKILL<br/>BLITZ
-        </h1>
+        <div className="flex flex-col items-center justify-center gap-2">
+          <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow">
+            SKILLS
+          </h1>
+          <img src={logoImage} alt="2" className="w-32 h-32 object-contain py-2" />
+          <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow">
+            CRYPTO
+          </h1>
+        </div>
         <p className="text-muted-foreground text-lg font-light tracking-wide">
           {t('1v1 Crypto Wagers', '1v1 Crypto Wagers')}
         </p>
