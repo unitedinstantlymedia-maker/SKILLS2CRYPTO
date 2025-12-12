@@ -95,8 +95,8 @@ export function BottomNav() {
                 "border backdrop-blur-md shadow-lg cursor-pointer overflow-hidden",
                 "bg-gradient-to-br", item.color, // Always apply color
                 active 
-                  ? cn("border-2", item.borderColor, item.glowColor, "shadow-[0_0_20px_rgba(0,0,0,0.5)]") 
-                  : "border-white/10 opacity-90 hover:opacity-100" // Slight opacity diff instead of gray
+                  ? cn("border-2", item.borderColor, item.glowColor, "shadow-[0_0_20px_rgba(0,0,0,0.5)] opacity-90") 
+                  : "border-white/10 opacity-70 hover:opacity-90" // 70% opacity for inactive, lighter look
               )}
               animate={{ 
                 y: active ? -8 : 0,
