@@ -10,7 +10,7 @@ export default function Landing() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8 text-center relative">
-      <div className="absolute top-4 left-0 z-50">
+      <div className="fixed top-2 left-[-10px] z-50">
         <img src={logoImage} alt="Logo" className="w-36 h-36 object-contain" />
       </div>
       <div className="absolute top-0 right-0">
