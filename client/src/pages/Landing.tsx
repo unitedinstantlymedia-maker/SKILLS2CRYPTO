@@ -10,7 +10,7 @@ export default function Landing() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8 text-center relative">
-      <div className="absolute top-0 right-[-1rem] transform scale-150 origin-top-right z-50">
+      <div className="fixed top-4 right-4 transform scale-150 origin-top-right z-50">
         <LanguageSelector />
       </div>
 
