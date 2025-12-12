@@ -72,7 +72,7 @@ export function BottomNav() {
       path: '#share', 
       label: t('Share', 'Share'), 
       icon: Share2,
-      color: 'from-blue-600/30 to-indigo-600/30',
+      color: 'from-blue-600/20 to-indigo-600/20', // Matched opacity to /20 like Home
       borderColor: 'border-blue-400/50',
       glowColor: 'shadow-blue-500/60',
       iconColor: 'text-blue-200',
