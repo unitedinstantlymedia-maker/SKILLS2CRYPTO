@@ -51,11 +51,11 @@ export default function Landing() {
             {t('Rules & Risks', 'Rules & Risks')}
           </Button>
         </Link>
-      </motion.div>
 
-      <div className="absolute bottom-24 text-xs text-muted-foreground font-mono">
-        USDT • ETH • TON
-      </div>
+        <div className="text-xs text-muted-foreground font-mono mt-2 text-center">
+          USDT • ETH • TON
+        </div>
+      </motion.div>
     </div>
   );
 }
