@@ -86,16 +86,17 @@ export function BottomNav() {
       <nav className="pointer-events-auto flex items-center gap-4 p-2 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/5 shadow-2xl relative">
         {navItems.map((item) => {
           const isShare = item.path === '#share';
-          const active = isActive(item.path) || isShare; // Share is always highlighted
+          const active = isActive(item.path);
           
           const Content = () => (
             <motion.div
               className={cn(
                 "relative w-24 h-16 rounded-2xl flex flex-col items-center justify-center gap-1 transition-all duration-300",
                 "border backdrop-blur-md shadow-lg cursor-pointer overflow-hidden",
+                "bg-gradient-to-br", item.color, // Always apply color
                 active 
-                  ? cn("bg-gradient-to-br border-2", item.color, item.borderColor, item.glowColor, "shadow-[0_0_20px_rgba(0,0,0,0.5)]") 
-                  : "bg-white/5 border-white/10 hover:bg-white/10"
+                  ? cn("border-2", item.borderColor, item.glowColor, "shadow-[0_0_20px_rgba(0,0,0,0.5)]") 
+                  : "border-white/10 opacity-90 hover:opacity-100" // Slight opacity diff instead of gray
               )}
               animate={{ 
                 y: active ? -8 : 0,
@@ -114,13 +115,13 @@ export function BottomNav() {
               {/* Icon */}
               <item.icon className={cn(
                 "h-6 w-6 z-10 drop-shadow-md transition-colors duration-300",
-                active ? "text-white" : "text-muted-foreground group-hover:text-white"
+                "text-white" // Always white/bright
               )} />
               
               {/* Label */}
               <span className={cn(
                 "text-[10px] font-bold uppercase tracking-widest z-10 transition-colors duration-300",
-                active ? "text-white" : "text-muted-foreground group-hover:text-white"
+                "text-white" // Always white/bright
               )}>
                 {item.label}
               </span>
