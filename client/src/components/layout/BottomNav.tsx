@@ -45,7 +45,7 @@ export function BottomNav() {
       path: '/', 
       label: t('Home', 'Home'), 
       icon: Gamepad2,
-      color: 'from-blue-500/20 to-cyan-500/20',
+      color: 'bg-cyan-500/70',
       borderColor: 'border-blue-500/50',
       glowColor: 'shadow-blue-500/50',
       iconColor: 'text-blue-400'
@@ -54,7 +54,7 @@ export function BottomNav() {
       path: '/wallet', 
       label: t('Wallet', 'Wallet'), 
       icon: Wallet,
-      color: 'from-primary/20 to-green-500/20', // Matches Play Now primary/green style but semi-transparent
+      color: 'bg-emerald-500/70', // Matches Play Now primary/green style but semi-transparent
       borderColor: 'border-primary/50',
       glowColor: 'shadow-primary/50',
       iconColor: 'text-primary'
@@ -63,7 +63,7 @@ export function BottomNav() {
       path: '/history', 
       label: t('History', 'History'), 
       icon: History,
-      color: 'from-purple-500/20 to-pink-500/20', // Same semi-transparent style
+      color: 'bg-purple-500/70', // Same semi-transparent style
       borderColor: 'border-purple-500/50',
       glowColor: 'shadow-purple-500/50',
       iconColor: 'text-purple-400'
@@ -72,7 +72,7 @@ export function BottomNav() {
       path: '#share', 
       label: t('Share', 'Share'), 
       icon: Share2,
-      color: 'from-blue-600/20 to-indigo-600/20', // Same semi-transparent style
+      color: 'bg-indigo-500/70', // Same semi-transparent style
       borderColor: 'border-blue-400/50',
       glowColor: 'shadow-blue-500/60',
       iconColor: 'text-blue-200',
@@ -93,10 +93,10 @@ export function BottomNav() {
               className={cn(
                 "relative w-24 h-16 rounded-2xl flex flex-col items-center justify-center gap-1 transition-all duration-300",
                 "border backdrop-blur-md shadow-lg cursor-pointer overflow-hidden",
-                "bg-gradient-to-br", item.color, // Always apply color
+                 item.color, // Always apply solid semi-transparent color
                 active 
-                  ? cn("border-2", item.borderColor, item.glowColor, "shadow-[0_0_20px_rgba(0,0,0,0.5)] opacity-80") 
-                  : "border-white/10 opacity-50 hover:opacity-70" // More transparent (lighter) background
+                  ? cn("border-2", item.borderColor, item.glowColor, "shadow-[0_0_20px_rgba(0,0,0,0.5)]") 
+                  : "border-white/10 hover:brightness-110" // No opacity changes, just brightness on hover
               )}
               animate={{ 
                 y: active ? -8 : 0,
