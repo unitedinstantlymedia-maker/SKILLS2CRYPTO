@@ -10,10 +10,7 @@ export default function Landing() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8 text-center relative">
-      <div className="fixed top-2 left-[-10px] z-50">
-        <img src={logoImage} alt="Logo" className="w-36 h-36 object-contain" />
-      </div>
-      <div className="absolute top-0 right-0">
+      <div className="absolute top-0 right-[-1rem] transform scale-150 origin-top-right z-50">
         <LanguageSelector />
       </div>
 
@@ -23,16 +20,16 @@ export default function Landing() {
         transition={{ duration: 0.5 }}
         className="space-y-2"
       >
-        <div className="flex flex-col items-center justify-center gap-2">
-          <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow">
+        <div className="flex flex-col items-center justify-center gap-0">
+          <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow leading-none -mb-4 z-10">
             SKILLS
           </h1>
-          <img src={logoImage} alt="2" className="w-32 h-32 object-contain py-2" />
-          <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow">
+          <img src={logoImage} alt="2" className="w-32 h-32 object-contain relative z-0" />
+          <h1 className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 text-glow leading-none -mt-4 z-10">
             CRYPTO
           </h1>
         </div>
-        <p className="text-muted-foreground text-lg font-light tracking-wide">
+        <p className="text-muted-foreground text-lg font-light tracking-wide pt-4">
           {t('1v1 Crypto Wagers', '1v1 Crypto Wagers')}
         </p>
       </motion.div>
