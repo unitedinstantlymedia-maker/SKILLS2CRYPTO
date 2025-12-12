@@ -3,12 +3,16 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageSelector } from "@/components/ui/LanguageSelector";
+import logoImage from '@assets/2025-12-12_07.52.28_1765519599465.jpg';
 
 export default function Landing() {
   const { t } = useLanguage();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8 text-center relative">
+      <div className="absolute top-4 left-4 z-50">
+        <img src={logoImage} alt="Logo" className="w-12 h-12 object-contain" />
+      </div>
       <div className="absolute top-0 right-0">
         <LanguageSelector />
       </div>
