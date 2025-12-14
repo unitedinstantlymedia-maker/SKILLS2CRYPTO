@@ -2,7 +2,6 @@ import { useGame } from "@/context/GameContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";
 import { Trophy, XCircle, Handshake } from "lucide-react";
-import { ShareButton } from "@/components/ui/ShareButton";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function History() {
@@ -14,7 +13,6 @@ export default function History() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-display font-bold uppercase tracking-wider">{t('Match History', 'Match History')}</h1>
-        <ShareButton />
       </div>
 
       {history.length === 0 ? (
