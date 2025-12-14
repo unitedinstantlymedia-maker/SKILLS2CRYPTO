@@ -140,30 +140,32 @@ export function BottomNav() {
 
           if (isShare) {
             return (
-              <div key={item.path} onClick={handleShare} className="relative group cursor-pointer flex-1 min-w-0">
+              <div key={item.path} className="flex-1 min-w-0 relative group" onClick={handleShare}>
                  <Content />
               </div>
             );
           }
 
           return (
-            <Link key={item.path} href={item.path}>
-              <a className="relative group flex-1 min-w-0">
-                <Content />
-                
-                {/* Reflection/Shadow underneath when lifted */}
-                {active && (
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className={cn(
-                      "absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 sm:w-16 h-2 rounded-full blur-md opacity-50",
-                      item.iconColor.replace('text-', 'bg-')
-                    )}
-                  />
-                )}
-              </a>
-            </Link>
+            <div key={item.path} className="flex-1 min-w-0 relative group">
+              <Link href={item.path}>
+                <a className="block w-full">
+                  <Content />
+                  
+                  {/* Reflection/Shadow underneath when lifted */}
+                  {active && (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className={cn(
+                        "absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 sm:w-16 h-2 rounded-full blur-md opacity-50",
+                        item.iconColor.replace('text-', 'bg-')
+                      )}
+                    />
+                  )}
+                </a>
+              </Link>
+            </div>
           );
         })}
       </nav>
