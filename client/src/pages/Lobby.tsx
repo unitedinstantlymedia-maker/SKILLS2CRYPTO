@@ -210,69 +210,67 @@ export default function Lobby() {
               {payout.toFixed(4)} {state.selectedAsset}
             </span>
           </div>
-
-          <div className="pt-2">
-            {state.isFinding ? (
-              <Button 
-                onClick={handleCancelSearch}
-                variant="destructive"
-                className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest border-glow animate-pulse"
-              >
-                <X className="mr-2 h-5 w-5" /> {t('Cancel Search', 'Cancel Search')}
-              </Button>
-            ) : isChallengeMode ? (
-              <div className="space-y-3">
-                 <div className="relative">
-                    <Input 
-                      placeholder={t("Enter Friend's ID", "Enter Friend's ID")} 
-                      value={friendId}
-                      onChange={(e) => setFriendId(e.target.value)}
-                      className="h-12 bg-black/20 border-white/10 font-mono text-center"
-                    />
-                 </div>
-                 <div className="flex gap-2">
-                     <Button 
-                        variant="outline"
-                        onClick={() => setIsChallengeMode(false)}
-                        className="flex-1 h-14 text-sm font-display font-bold uppercase tracking-widest hover:bg-white/5"
-                     >
-                        {t('Back', 'Back')}
-                     </Button>
-                     <Button 
-                        onClick={handleStartSearch} 
-                        disabled={isTon || !friendId.trim()} 
-                        className="flex-[2] h-14 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50"
-                     >
-                        {t('Continue', 'Continue')}
-                     </Button>
-                 </div>
-              </div>
-            ) : (
-              <div className="flex gap-2">
-                <Button 
-                  onClick={handleStartSearch}
-                  disabled={isTon} 
-                  className="flex-1 h-14 text-[10px] sm:text-xs md:text-sm font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed px-1 whitespace-nowrap overflow-hidden text-ellipsis"
-                >
-                  <Zap className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" /> {t('Find Match', 'Find Match')}
-                </Button>
-                <Button 
-                  onClick={() => setIsChallengeMode(true)}
-                  disabled={isTon}
-                  className="flex-1 h-14 text-[10px] sm:text-xs md:text-sm font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed px-1 whitespace-nowrap overflow-hidden text-ellipsis"
-                >
-                  <UserPlus className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" /> {t('Challenge Friend', 'Challenge Friend')}
-                </Button>
-              </div>
-            )}
-            
-            {state.isFinding && (
-               <div className="text-center text-xs text-muted-foreground animate-pulse mt-2">
-                 {t('Searching for opponent...', 'Searching for opponent...')} ({state.selectedAsset} {state.stakeAmount})
-               </div>
-            )}
-          </div>
         </Card>
+
+        {state.isFinding ? (
+          <Button 
+            onClick={handleCancelSearch}
+            variant="destructive"
+            className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest border-glow animate-pulse"
+          >
+            <X className="mr-2 h-5 w-5" /> {t('Cancel Search', 'Cancel Search')}
+          </Button>
+        ) : isChallengeMode ? (
+          <div className="space-y-3">
+             <div className="relative">
+                <Input 
+                  placeholder={t("Enter Friend's ID", "Enter Friend's ID")} 
+                  value={friendId}
+                  onChange={(e) => setFriendId(e.target.value)}
+                  className="h-12 bg-black/20 border-white/10 font-mono text-center"
+                />
+             </div>
+             <div className="flex gap-2">
+                 <Button 
+                    variant="outline"
+                    onClick={() => setIsChallengeMode(false)}
+                    className="flex-1 h-14 text-sm font-display font-bold uppercase tracking-widest hover:bg-white/5"
+                 >
+                    {t('Back', 'Back')}
+                 </Button>
+                 <Button 
+                    onClick={handleStartSearch} 
+                    disabled={isTon || !friendId.trim()} 
+                    className="flex-[2] h-14 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50"
+                 >
+                    {t('Continue', 'Continue')}
+                 </Button>
+             </div>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <Button 
+              onClick={handleStartSearch}
+              disabled={isTon} 
+              className="flex-1 h-14 text-[10px] sm:text-xs md:text-sm font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed px-1 whitespace-nowrap overflow-hidden text-ellipsis"
+            >
+              <Zap className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" /> {t('Find Match', 'Find Match')}
+            </Button>
+            <Button 
+              onClick={() => setIsChallengeMode(true)}
+              disabled={isTon}
+              className="flex-1 h-14 text-[10px] sm:text-xs md:text-sm font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed px-1 whitespace-nowrap overflow-hidden text-ellipsis"
+            >
+              <UserPlus className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" /> {t('Challenge Friend', 'Challenge Friend')}
+            </Button>
+          </div>
+        )}
+        
+        {state.isFinding && (
+           <div className="text-center text-xs text-muted-foreground animate-pulse mt-2">
+             {t('Searching for opponent...', 'Searching for opponent...')} ({state.selectedAsset} {state.stakeAmount})
+           </div>
+        )}
       </div>
     </div>
   );
