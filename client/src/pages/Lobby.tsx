@@ -235,7 +235,7 @@ export default function Lobby() {
              <div className="bg-card/50 border border-white/10 rounded-lg p-6 text-center space-y-4">
                 <div className="flex items-center justify-center gap-1 text-lg sm:text-xl font-display font-bold tracking-tight text-primary flex-wrap">
                   <span className="text-white">skills</span>
-                  <div className="relative inline-flex items-center justify-center h-16 w-16 -my-6 mx-1">
+                  <div className="relative inline-flex items-center justify-center h-14 w-14 -my-5 mx-1">
                     <img 
                       src={logoImage} 
                       alt="2" 
