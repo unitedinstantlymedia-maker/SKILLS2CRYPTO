@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLocation } from "wouter";
 import { useState } from "react";
-import { ArrowLeft, Coins, Zap, Info, Loader2, X, Ship, UserPlus } from "lucide-react";
+import { ArrowLeft, Coins, Zap, Info, Loader2, X, Ship, UserPlus, Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "wouter";
 import { mockEscrowAdapter } from "@/core/escrow/MockEscrowAdapter";
@@ -15,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
 import { ShareButton } from "@/components/ui/ShareButton";
 import { useLanguage } from "@/context/LanguageContext";
+import logoImage from '@assets/2025-12-12_07.52.28_1765519599465.jpg';
 
 export default function Lobby() {
   const { state, actions } = useGame();
@@ -22,6 +23,8 @@ export default function Lobby() {
   const [customStake, setCustomStake] = useState<string>("");
   const [isChallengeMode, setIsChallengeMode] = useState(false);
   const [playerName, setPlayerName] = useState("");
+  const [showChallengeLink, setShowChallengeLink] = useState(false);
+  const [challengeLink, setChallengeLink] = useState("");
   const { toast } = useToast();
   const { t } = useLanguage();
 
@@ -90,6 +93,13 @@ export default function Lobby() {
       // Usually implies blocking action.
       // But for prototype, let's block but give a clear message.
       return; 
+    }
+
+    if (isChallengeMode) {
+       const mockLink = `https://skills2crypto.com/challenge/${playerName.replace(/\s+/g, '-').toLowerCase()}-${Math.random().toString(36).substring(7)}`;
+       setChallengeLink(mockLink);
+       setShowChallengeLink(true);
+       return;
     }
 
     await actions.startSearch();
@@ -220,6 +230,50 @@ export default function Lobby() {
           >
             <X className="mr-2 h-5 w-5" /> {t('Cancel Search', 'Cancel Search')}
           </Button>
+        ) : showChallengeLink ? (
+          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+             <div className="bg-card/50 border border-white/10 rounded-lg p-6 text-center space-y-4">
+                <div className="flex items-center justify-center gap-0.5 text-lg sm:text-xl font-display font-bold tracking-tight text-primary flex-wrap">
+                  <span className="text-white">skills</span>
+                  <img src={logoImage} alt="2" className="h-6 w-6 object-contain -mt-1" />
+                  <span className="text-white">crypto.com</span>
+                  <span className="text-muted-foreground ml-0.5 truncate max-w-[150px]">/{challengeLink.split('/').pop()}</span>
+                </div>
+                
+                <div className="relative">
+                   <Input 
+                      readOnly
+                      value={challengeLink}
+                      className="h-12 bg-black/40 border-white/10 font-mono text-xs sm:text-sm pr-12 text-center text-muted-foreground"
+                   />
+                   <Button
+                      size="icon"
+                      variant="ghost"
+                      className="absolute right-1 top-1 h-10 w-10 hover:bg-white/10"
+                      onClick={() => {
+                        navigator.clipboard.writeText(challengeLink);
+                        toast({
+                           title: t("Copied!", "Copied!"),
+                           description: t("Challenge link copied to clipboard", "Challenge link copied to clipboard"),
+                        });
+                      }}
+                   >
+                      <Copy className="h-4 w-4" />
+                   </Button>
+                </div>
+                
+                <p className="text-sm text-muted-foreground">
+                   {t('Share this link with your friend to start the match.', 'Share this link with your friend to start the match.')}
+                </p>
+             </div>
+
+             <Button 
+                onClick={() => setShowChallengeLink(false)}
+                className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow"
+             >
+                {t('Done', 'Done')}
+             </Button>
+          </div>
         ) : isChallengeMode ? (
           <div className="space-y-3">
              <div className="relative">
