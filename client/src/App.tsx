@@ -14,6 +14,7 @@ import Play from "@/pages/Play";
 import Result from "@/pages/Result";
 import Wallet from "@/pages/Wallet";
 import History from "@/pages/History";
+import Challenge from "@/pages/Challenge";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/rules" component={Rules} />
         <Route path="/games" component={Games} />
         <Route path="/lobby" component={Lobby} />
+        <Route path="/challenge/:challengeId" component={Challenge} />
         <Route path="/play/:gameId" component={Play} />
         <Route path="/result" component={Result} />
         <Route path="/wallet" component={Wallet} />
