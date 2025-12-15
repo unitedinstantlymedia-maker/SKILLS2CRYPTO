@@ -224,15 +224,7 @@ export default function Lobby() {
             disabled={isTon} 
             className="w-full h-14 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {!isBalanceSufficient ? (
-               <>
-                 <Zap className="mr-2 h-5 w-5" /> {t('Find Match', 'Find Match')} (Check Bal)
-               </>
-            ) : (
-               <>
-                 <Zap className="mr-2 h-5 w-5" /> {t('Find Match', 'Find Match')}
-               </>
-            )}
+            <Zap className="mr-2 h-5 w-5" /> {t('Find Match', 'Find Match')}
           </Button>
         )}
         
