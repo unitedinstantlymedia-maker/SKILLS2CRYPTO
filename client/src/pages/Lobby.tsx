@@ -224,12 +224,12 @@ export default function Lobby() {
           <div className="space-y-3">
              <div className="relative">
                 <Input 
-                  placeholder={t("This will be shown to your opponent", "This will be shown to your opponent")} 
+                  placeholder={t("Enter your name or nickname", "Enter your name or nickname")} 
                   value={playerName}
                   onChange={(e) => setPlayerName(e.target.value)}
                   className="h-12 bg-black/20 border-white/10 font-mono text-center"
                 />
-                <p className="text-xs text-center text-muted-foreground mt-1 uppercase tracking-widest">{t('Enter your name or nickname', 'Enter your name or nickname')}</p>
+                <p className="text-xs text-center text-muted-foreground mt-1 uppercase tracking-widest">{t('This will be shown to your opponent', 'This will be shown to your opponent')}</p>
              </div>
              <div className="flex gap-2">
                  <Button 
