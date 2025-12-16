@@ -126,7 +126,6 @@ export default function Lobby() {
   
   const currentBalance = state.wallet.balances[state.selectedAsset] || 0;
   const isBalanceSufficient = currentBalance >= totalCost;
-  const isTon = state.selectedAsset === 'TON'; // TON is coming soon
 
   // Fee Calculation Logic
   const pot = state.stakeAmount * 2;
@@ -145,7 +144,6 @@ export default function Lobby() {
           <h1 className="text-2xl font-display font-bold uppercase tracking-wider">{t('Lobby', 'Lobby')}</h1>
           <p className="text-muted-foreground text-sm">{state.selectedGame}</p>
         </div>
-        <ShareButton className="ml-auto" />
       </div>
 
       <div className="space-y-6">
@@ -157,13 +155,9 @@ export default function Lobby() {
               <ToggleGroupItem 
                 key={asset} 
                 value={asset}
-                disabled={asset === 'TON'}
                 className="h-12 px-6 border border-white/10 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:border-primary/50 rounded-lg transition-all relative"
               >
                 {asset}
-                {asset === 'TON' && (
-                  <span className="absolute -top-2 -right-2 text-[8px] bg-accent text-accent-foreground px-1.5 py-0.5 rounded-full uppercase font-bold">{t('Soon', 'Soon')}</span>
-                )}
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
@@ -181,7 +175,6 @@ export default function Lobby() {
             {STAKE_PRESETS.map((amount) => (
               <Button
                 key={amount}
-                disabled={isTon}
                 variant={state.stakeAmount === amount && !customStake ? "default" : "outline"}
                 onClick={() => handleStakeChange(amount)}
                 className={cn(
@@ -199,7 +192,6 @@ export default function Lobby() {
               placeholder={t('Custom Amount', 'Custom Amount')}
               value={customStake}
               onChange={handleCustomStakeChange}
-              disabled={isTon}
               className="h-12 bg-black/20 border-white/10 font-mono pl-10"
             />
             <Coins className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
@@ -306,7 +298,7 @@ export default function Lobby() {
                  </Button>
                  <Button 
                     onClick={handleStartSearch} 
-                    disabled={isTon || !playerName.trim()} 
+                    disabled={!playerName.trim()} 
                     className="flex-[2] h-14 text-lg font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50"
                  >
                     {t('Continue', 'Continue')}
@@ -317,14 +309,12 @@ export default function Lobby() {
           <div className="flex gap-2">
             <Button 
               onClick={handleStartSearch}
-              disabled={isTon} 
               className="flex-1 h-14 text-[10px] sm:text-xs md:text-sm font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed px-1 whitespace-nowrap overflow-hidden text-ellipsis"
             >
               <Zap className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" /> {t('Find Match', 'Find Match')}
             </Button>
             <Button 
               onClick={() => setIsChallengeMode(true)}
-              disabled={isTon}
               className="flex-1 h-14 text-[10px] sm:text-xs md:text-sm font-display font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-glow disabled:opacity-50 disabled:cursor-not-allowed px-1 whitespace-nowrap overflow-hidden text-ellipsis"
             >
               <UserPlus className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" /> {t('Challenge Friend', 'Challenge Friend')}
