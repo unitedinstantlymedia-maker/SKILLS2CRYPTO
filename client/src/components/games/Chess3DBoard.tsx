@@ -35,7 +35,7 @@ export function Chess3DBoard() {
             enableZoom={false} 
             minPolarAngle={Math.PI / 6} 
             maxPolarAngle={Math.PI / 2.5}
-            autoRotate={true}
+            autoRotate={false}
             autoRotateSpeed={0.5}
           />
         </Canvas>
