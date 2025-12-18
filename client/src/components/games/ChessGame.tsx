@@ -1,29 +1,53 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
+import { Chess } from "chess.js";
+import { Chessboard } from "react-chessboard";
 
 export function ChessGame({ onFinish }: { onFinish: (result: 'win' | 'loss' | 'draw') => void }) {
   const { t } = useLanguage();
+  const [game, setGame] = useState(new Chess());
+
+  function onDrop(sourceSquare: string, targetSquare: string) {
+    try {
+      const gameCopy = new Chess(game.fen());
+      const move = gameCopy.move({
+        from: sourceSquare,
+        to: targetSquare,
+        promotion: "q", // always promote to queen for simplicity
+      });
+      
+      if (move === null) return false;
+      
+      setGame(gameCopy);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  // Wrapper to handle the specific signature expected by this version of react-chessboard if needed,
+  // or just pass onDrop directly if types align. 
+  // Based on previous interaction, this library version might be quirky.
+  // I will try standard props first as it is most common, and if it fails I'll fix it.
+  // Actually, I'll use the 'options' pattern if I see errors, but let's try standard first as it's cleaner code.
+  // Wait, I saw the d.ts file. It ONLY had 'options'. I MUST use 'options'.
+  
+  const boardOptions = {
+    position: game.fen(),
+    onPieceDrop: ({ sourceSquare, targetSquare }: any) => onDrop(sourceSquare, targetSquare),
+    customDarkSquareStyle: { backgroundColor: 'rgba(34, 197, 94, 0.2)' },
+    customLightSquareStyle: { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+    customBoardStyle: {
+      borderRadius: '4px',
+      boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)',
+    }
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full space-y-8">
-      <div className="w-full aspect-square bg-black/40 border-2 border-white/10 rounded-lg grid grid-cols-8 grid-rows-8 relative overflow-hidden">
-        {/* Checkered background */}
-        {Array.from({ length: 64 }).map((_, i) => {
-          const x = i % 8;
-          const y = Math.floor(i / 8);
-          const isBlack = (x + y) % 2 === 1;
-          return (
-            <div 
-              key={i} 
-              className={`${isBlack ? 'bg-white/5' : 'bg-transparent'}`} 
-            />
-          );
-        })}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-muted-foreground text-sm font-mono bg-black/80 px-4 py-2 rounded">
-            {t('Chess Engine Placeholder', 'Chess Engine Placeholder')}
-          </span>
-        </div>
+    <div className="flex flex-col items-center justify-center h-full space-y-6 w-full max-w-md mx-auto">
+      <div className="w-full aspect-square bg-black/40 border-2 border-white/10 rounded-lg overflow-hidden shadow-2xl relative">
+        <Chessboard options={boardOptions} />
       </div>
       
       <div className="grid grid-cols-2 gap-4 w-full">
